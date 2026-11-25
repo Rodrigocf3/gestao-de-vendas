@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Wireframe - Gestão de Tarefas</title>
+<link rel="stylesheet" href="css/wireframe.css">
+</head>
+<body>
+
+<h2 class="wf-h">1) login.php</h2>
+<div class="tela">
+    <div class="titulo">(TODO LIST) Entrar</div>
+    <div class="campo">E-mail</div>
+    <div class="input"></div>
+    <div class="campo">Senha</div>
+    <div class="input"></div>
+    <div class="botao">Entrar</div>
+    <div class="filtros">Ainda não tem conta? <u>Cadastre-se</u></div>
+    <div class="nota">Entrar → index.php &nbsp;|&nbsp; Cadastre-se → cadastro.php</div>
+</div>
+
+<h2 class="wf-h">2) cadastro.php</h2>
+<div class="tela">
+    <div class="titulo">Criar conta</div>
+    <div class="campo">Nome</div><div class="input"></div>
+    <div class="campo">E-mail</div><div class="input"></div>
+    <div class="campo">Senha</div><div class="input"></div>
+    <div class="campo">Confirmar senha</div><div class="input"></div>
+    <div class="botao">Cadastrar</div>
+    <div class="filtros">Já tem conta? <u>Entrar</u></div>
+    <div class="nota">Cadastrar → entra logado direto em index.php (sem e-mail de confirmação)</div>
+</div>
+
+<h2 class="wf-h">3) index.php (somente tarefas do usuário logado)</h2>
+<div class="tela">
+    <div class="topo-usuario"><span>Olá, Ana</span><u>Sair</u></div>
+    <div class="titulo">(TODO LIST)</div>
+
+    <div class="linha-input">
+        <div class="input"></div>
+        <div class="circulo">+</div>
+    </div>
+
+    <div class="filtros"><b>TODAS</b> / CONCLUÍDAS / NÃO CONCLUÍDAS</div>
+
+    <div class="item">
+        <div class="box"></div>
+        <div class="txt">Estudar para a prova de PHP</div>
+        <div>✏️ 🗑️</div>
+    </div>
+    <div class="item ok">
+        <div class="box">✓</div>
+        <div class="txt">Fazer o mapa de navegação</div>
+        <div>✏️ 🗑️</div>
+    </div>
+    <div class="item">
+        <div class="box"></div>
+        <div class="txt">Desenhar os wireframes</div>
+        <div>✏️ 🗑️</div>
+    </div>
+
+    <div class="nota">(+) → inclusao.php &nbsp;|&nbsp; ☑ → status.php &nbsp;|&nbsp; ✏️ → edicao.php &nbsp;|&nbsp; 🗑️ → exclusao.php &nbsp;|&nbsp; Sair → logout.php &nbsp;|&nbsp; concluída = cinza + riscado</div>
+</div>
+
+<h2 class="wf-h">4) edicao.php</h2>
+<div class="tela">
+    <div class="titulo">Editar tarefa</div>
+    <div class="campo">Descrição</div>
+    <div class="input"></div>
+    <div class="botao">Salvar</div> <u>Cancelar</u>
+    <div class="nota">Salvar → grava e volta para index.php &nbsp;|&nbsp; sem login → login.php</div>
+</div>
+
+<h2 class="wf-h">Mapa de navegação</h2>
+<div class="tela">
+<pre>
+login.php ⇄ cadastro.php
+   │             │ (cadastro já loga)
+   ▼             ▼
+        index.php ──► inclusao.php ──► index.php
+            │ ──────► status.php   ──► index.php
+            │ ──────► edicao.php   ──► index.php
+            │ ──────► exclusao.php ──► index.php
+            └──────► logout.php   ──► login.php
+
+Páginas protegidas sem login → login.php
+Tarefa de outro usuário → erro.php?tipo=negado (403)
+</pre>
+</div>
+</body>
+</html>
